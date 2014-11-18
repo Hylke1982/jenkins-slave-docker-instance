@@ -5,6 +5,7 @@ class { 'apt':
 }
 
 class devopsmachine::installation {
+  class { 'devopsmachine::installation::debs' : } ->
   class { 'devopsmachine::installation::packages' : } ->
   class { 'devopsmachine::installation::jenkinsslave': } ->
   class { 'devopsmachine::installation::dockersettings': } ->
@@ -13,25 +14,33 @@ class devopsmachine::installation {
 
 class devopsmachine::installation::debs {
 
+
   apt::source { 'deb':
-    location          => 'http://ftp.nl.debian.org/debian/',
-    release           => "jessie",
-    repos             => 'main',
-    include_src       => true
+    location => 'http://nl.archive.ubuntu.com/ubuntu/',
+    release => "trusty",
+    repos => 'main restricted universe multiverse',
+    include_src => true
   }
-
   apt::source { 'deb-updates':
-    location          => 'http://ftp.nl.debian.org/debian/',
-    release           => "jessie-updates",
-    repos             => 'main',
-    include_src       => true
+    location => 'http://nl.archive.ubuntu.com/ubuntu/',
+    release => "trusty-updates",
+    repos => 'main restricted universe multiverse',
+    include_src => true
+  }
+  apt::source { 'deb-security':
+    location => 'http://nl.archive.ubuntu.com/ubuntu/',
+    release => "trusty-security",
+    repos => 'main',
+    include_src => true
   }
 
-  apt::source { 'deb-security':
-    location          => 'http://ftp.nl.debian.org/debian-security/',
-    release           => "jessie/updates",
-    repos             => 'main',
-    include_src       => true
+  apt::source { 'jenkins':
+    location    => 'http://pkg.jenkins-ci.org/debian',
+    release     => 'binary/',
+    repos       => '',
+    key         => 'D50582E6',
+    key_source  => 'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
+    include_src => false,
   }
 
 }
@@ -54,8 +63,8 @@ class devopsmachine::installation::jenkinsslave{
 
 class devopsmachine::installation::dockersettings{
   class { 'docker':
-    version => 'latest',
-    dns     => '8.8.8.8',
+    manage_kernel  => false,
+    dns            => '8.8.8.8',
   }
 }
 
