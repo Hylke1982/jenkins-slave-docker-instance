@@ -55,7 +55,7 @@ class devopsmachine::installation::packages{
 class devopsmachine::installation::jenkinsslave{
   class { 'jenkins::slave':
     slave_name            => "docker-slave",
-    labels                => "docker",
+    labels                => "docker puppet node",
     masterurl             => 'http://33.33.33.30:8080',
     install_java          => false,
   }
