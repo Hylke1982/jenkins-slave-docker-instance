@@ -4,3 +4,5 @@ mod 'garethr/docker',
  :git => "https://github.com/Hylke1982/garethr-docker.git"
 
 mod 'rtyler/jenkins'
+
+mod 'onyxpoint/gpasswd'
