@@ -83,6 +83,10 @@ class devopsmachine::installation::dockerimages{
   docker::image { 'jasmine-nodejs-test':
     docker_file => '/vagrant/files/jasmine-test-container.dockerfile'
   }
+  # Tomcat container
+  docker::image { 'tomcat-container':
+    docker_file => '/vagrant/files/tomcat-container.dockerfile'
+  }
 }
 
 class devopsmachine::installation::adddockerusers{
