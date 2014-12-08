@@ -1,7 +1,6 @@
 forge 'http://forge.puppetlabs.com'
 
-mod 'garethr/docker',
- :git => "https://github.com/Hylke1982/garethr-docker.git"
+mod 'garethr/docker'
 
 mod 'rtyler/jenkins'
 
