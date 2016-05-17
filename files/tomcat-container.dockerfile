@@ -1,4 +1,4 @@
-FROM dockerfile/java
+FROM java:7
 MAINTAINER Hylke Stapersma "hylke.stapersma@gmail.com"
 
 RUN wget -nv --no-cookies http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-7.0.47.tar.gz -O /tmp/apache-tomcat-7.0.47.tar.gz

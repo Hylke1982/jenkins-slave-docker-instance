@@ -8,7 +8,7 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LANG en_US.UTF-8
 RUN unset LC_ALL
 
-RUN npm install -g jasmine jasmine-node istanbul
+RUN npm install -g jasmine-node
 
 
 # create and configure work directory

@@ -1,9 +1,3 @@
-class { 'apt':
-  always_apt_update    => true,
-  update_timeout       => undef,
-  purge_sources_list   => true
-}
-
 class devopsmachine::installation {
   class { 'devopsmachine::installation::debs' : } ->
   class { 'devopsmachine::installation::packages' : } ->
@@ -60,6 +54,8 @@ class devopsmachine::installation::jenkinsslave{
     masterurl             => 'http://33.33.33.30:8080',
     slave_user            => 'jenkins',
     install_java          => false,
+    ui_user               => 'admin',
+    ui_pass               => 'e5b526b836b44ecdb965cdd67d4f6851'
   }
 }
 
